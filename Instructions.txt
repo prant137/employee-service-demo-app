@@ -1,0 +1,64 @@
+ABOUT THE PROJECT:
+This is a springboot application exposing a rest service to do crud operations on Employee entity. The project uses a H2 in memory
+database and maven for build and dependency management
+
+Employee entity has 5 attributes -
+e.g -
+"id": "10001",
+"name": "Prant",
+"role": "Developer",
+"team": "Avengers",
+"company": "Fidelity"
+
+
+BUILD INSTRUCTION: ./mvnw clean install - This will build the project
+
+RUNNING THE APP: Once build is successful, execute this command -
+java -jar target/employee-service-demo-app-0.0.1-SNAPSHOT.jar
+
+H2 DB CONSOLE ACCESS:
+The h2 console can be accessed via this url locally (once the server is started) - http://localhost:8080/h2-console/
+This is the JDBC URL - jdbc:h2:mem:testdb
+Click connect and you will be able to see the employee table
+
+TESTING THE APP:
+Use a REST Client to test (like POSTMAN)
+
+FIND ALL EMPLOYEES -
+http://localhost:8080/employees
+
+FIND EMPLOYEE BY ID -
+http://localhost:8080/employees/10001
+
+ADD EMPLOYEE - SAMPLE REQUEST:
+
+POST /employees HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+	"id": "10003",
+	"name": "JOHN",
+	"role": "Developer",
+	"team": "Avengers",
+	"company": "Fidelity"
+}
+
+UPDATE EMPLOYEE BY ID - SAMPLE REQUEST:
+
+PUT /employees/10002 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+	"id": "10002",
+	"name": "BRAD",
+	"role": "Developer",
+	"team": "Avengers",
+	"company": "Fidelity"
+
+}
+
+DELETE EMPLOYEE BY ID -
+DELETE HTTP://localhost:8080/employees/10002
+
